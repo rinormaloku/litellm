@@ -443,6 +443,9 @@ class PrometheusLogger(CustomLogger):
                 metadata=standard_logging_payload["metadata"].get("requester_metadata")
                 or {}
             ),
+            route=standard_logging_payload["metadata"].get(
+                "user_api_key_request_route"
+            ),
         )
 
         if (
@@ -654,8 +657,6 @@ class PrometheusLogger(CustomLogger):
             ),
             enum_values=enum_values,
         )
-
-        self.litellm_proxy_total_requests_metric.labels(**_labels).inc()
 
         self.litellm_spend_metric.labels(
             end_user_id,

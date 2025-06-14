@@ -1778,6 +1778,7 @@ class StandardLoggingUserAPIKeyMetadata(TypedDict):
     user_api_key_user_email: Optional[str]
     user_api_key_team_alias: Optional[str]
     user_api_key_end_user_id: Optional[str]
+    user_api_key_request_route: Optional[str]
 
 
 class StandardLoggingMCPToolCall(TypedDict, total=False):
